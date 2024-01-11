@@ -2,6 +2,9 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { SignedIn, UserButton } from '@clerk/nextjs'
+import Theme from '@/components/shared/navbar/Theme'
+import MobileNav from '@/components/shared/navbar/MobileNav'
+import GlobalSearch from '@/components/shared/search/GlobalSearch'
 
 const Navbar = () => {
   return (
@@ -10,10 +13,9 @@ const Navbar = () => {
             <Image src="/assets/images/site-logo.svg" width={23} height={23} alt='DevQuest Logo'></Image>
             <p className='h2-bold font-spaceGrotesk text-dark-100 dark:text-light-900 max-sm:hidden'>Dev <span className='text-primary-500'>Quest</span></p>
         </Link>
-        {/* Global search */}
+        <GlobalSearch />
         <div className='flex-between gap-5'>
-            Theme
-
+            <Theme />
             <SignedIn>
                 <UserButton afterSignOutUrl="/"
                     appearance={{
@@ -22,6 +24,7 @@ const Navbar = () => {
                     }}
                 />
             </SignedIn>
+            <MobileNav />
         </div>
     </nav>
   )
